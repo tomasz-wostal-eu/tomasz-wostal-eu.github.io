@@ -1,8 +1,6 @@
 public/
 node_modules/
-package-lock.json
 yarn-error.log
-yarn.lock
 .DS_Store
 *.log
 *.env
@@ -24,3 +22,4 @@ config.local.toml
 .vercel
 CLAUDE.md
 GEMINI.md
+themes/careercanvas.backup/
