@@ -1,0 +1,32 @@
+{{ define "main" }}
+<section class="py-12 bg-bg dark:bg-bg">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <article class="bg-gradient-to-br from-bg-secondary to-bg-tertiary dark:from-bg-secondary dark:to-bg-tertiary rounded-lg shadow-lg p-6 md:p-8 border border-border-primary dark:border-border-primary">
+      <header class="mb-8 text-center">
+        {{ if .Params.featured_image }}
+        <img src="{{ .Params.featured_image }}" alt="{{ .Title }}" class="w-full h-auto rounded-lg mb-8">
+        {{ end }}
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 font-heading text-text-primary dark:text-text-primary">{{ .Title }}</h1>
+        <p class="text-lg text-text-tertiary dark:text-text-tertiary">{{ .Date.Format "January 2, 2006" }}</p>
+      </header>
+      
+      <div class="prose prose-lg dark:prose-invert max-w-none markdown-content text-gray-800">
+        {{ .Content }}
+      </div>
+
+      {{ if .Params.tags }}
+      <footer class="mt-12 pt-6 border-t border-border-primary dark:border-border-secondary">
+        <p class="text-md font-semibold text-text-primary dark:text-text-primary mb-4">Tags:</p>
+        <div class="flex flex-wrap gap-2">
+          {{ range .Params.tags }}
+          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="bg-primary-lighter text-primary-dark dark:bg-primary-dark dark:text-primary-lighter px-3 py-1 rounded-full text-sm font-medium hover:bg-primary-light dark:hover:bg-primary-darker transition-colors duration-300">
+            #{{ . }}
+          </a>
+          {{ end }}
+        </div>
+      </footer>
+      {{ end }}
+    </article>
+  </div>
+</section>
+{{ end }}
