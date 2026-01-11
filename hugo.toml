@@ -14,7 +14,7 @@ defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
 # Google Analytics 4
-googleAnalytics = "G-G-T7LE7C2JXM"
+googleAnalytics = "G-T7LE7C2JXM"
 
 [languages]
   [languages.en]
