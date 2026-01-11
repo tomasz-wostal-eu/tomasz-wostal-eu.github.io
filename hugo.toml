@@ -1,6 +1,6 @@
 # Hugo Site Configuration
 # This is the main configuration file for the Hugo site
-# 
+#
 # SECURITY NOTE: Sensitive data (API keys, endpoints) are handled securely:
 # - Local development: Use config.local.toml (not committed to git)
 # - Production: Environment variables injected via GitHub Actions
@@ -12,6 +12,9 @@ title = "Tomasz Wostal"
 theme = "careercanvas"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
+
+# Google Analytics 4
+googleAnalytics = "G-G-T7LE7C2JXM"
 
 [languages]
   [languages.en]
