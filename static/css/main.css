@@ -1448,11 +1448,6 @@ body {
 
 /* Hero Social Links */
 
-.hero-social-link {
-  color: #8839ef;
-  /* Catppuccin Latte Mauve */
-}
-
 .dark .hero-social-link {
   color: #cba6f7;
   /* Macchiato Mauve */
