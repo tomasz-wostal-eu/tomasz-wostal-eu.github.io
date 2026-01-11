@@ -1,0 +1,60 @@
+{{/*
+Pexels API Configuration
+This partial provides the API key and queries to the frontend JavaScript.
+
+SECURITY NOTE:
+- API key and Formspree endpoint are loaded from static JSON file
+- This file is generated during build from GitHub Secrets
+- No sensitive data is hardcoded in the repository
+*/}}
+
+{{/* Set Pexels queries from Hugo config (safe to expose) */}}
+{{ $pexelsQueries := .Site.Params.pexels.queries }}
+{{ if not $pexelsQueries }}
+  {{ errorf "Pexels queries not configured in config.toml under [params.pexels.queries]" }}
+{{ end }}
+<div id="pexels-config" data-queries="{{ $pexelsQueries | jsonify }}" style="display: none;"></div>
+
+<script>
+  // Initialize configuration - will be loaded from static JSON file
+  window.PEXELS_API_KEY = null;
+  window.FORMSPREE_ENDPOINT = null;
+
+  // Load queries from data attribute (configured in config.toml)
+  const configElement = document.getElementById('pexels-config');
+  if (configElement) {
+    try {
+      window.PEXELS_QUERIES = JSON.parse(configElement.getAttribute('data-queries'));
+    } catch (error) {
+      console.error('Error parsing Pexels queries from config.toml:', error);
+      window.PEXELS_QUERIES = [];
+    }
+  } else {
+    console.error('Pexels config element not found');
+    window.PEXELS_QUERIES = [];
+  }
+
+  // Function to fetch configuration from static JSON file
+  async function fetchConfig() {
+    try {
+      const response = await fetch('/api/config.json');
+      if (response.ok) {
+        const config = await response.json();
+        window.PEXELS_API_KEY = config.pexelsApiKey;
+        window.FORMSPREE_ENDPOINT = config.formspreeEndpoint;
+        console.log('Configuration loaded successfully');
+      } else {
+        console.warn('Failed to load configuration file');
+      }
+    } catch (error) {
+      console.warn('Error loading configuration:', error);
+    }
+  }
+
+  // Load configuration when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fetchConfig);
+  } else {
+    fetchConfig();
+  }
+</script>

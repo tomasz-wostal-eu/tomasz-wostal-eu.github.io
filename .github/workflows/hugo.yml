@@ -56,6 +56,17 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
+      - name: Create API config file
+        run: |
+          mkdir -p static/api
+          cat > static/api/config.json << EOF
+          {
+            "pexelsApiKey": "${{ secrets.PEXELS_API_KEY }}",
+            "formspreeEndpoint": "${{ secrets.FORMSPREE_ENDPOINT }}"
+          }
+          EOF
+
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
