@@ -1,0 +1,26 @@
+<pre class="mermaid">
+{{ .Inner }}
+</pre>
+{{ if not (.Page.Scratch.Get "mermaid") }}
+{{ .Page.Scratch.Set "mermaid" true }}
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: "base",
+  themeVariables: {
+    background: "#24273a",
+    primaryColor: "#363a4f",
+    primaryTextColor: "#cad3f5",
+    primaryBorderColor: "#8aadf4",
+    secondaryColor: "#494d64",
+    secondaryTextColor: "#cad3f5",
+    tertiaryColor: "#1e2030",
+    lineColor: "#8aadf4",
+    textColor: "#cad3f5",
+    clusterBkg: "#1e2030",
+    clusterBorder: "#c6a0f6"
+  }
+});
+</script>
+{{ end }}
