@@ -748,4 +748,4 @@ We've built a production-grade local Kubernetes environment:
 
 ---
 
-*All code and configuration from this post is available in the [cd-homelab repository](https://github.com/your-username/cd-homelab).*
+4*All code and configuration from this post is available in the [cd-homelab repository](https://github.com/tomasz-wostal-eu/cd-homelab).*
