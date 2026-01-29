@@ -7,7 +7,7 @@ tags: ["nix", "nixos", "macos", "nix-flakes", "home-manager", "iac", "devops"]
 featured_image: "/images/blog/04-nix-intro/header.png"
 ---
 
-> **TL;DR**: This repository contains my personal configuration for NixOS and macOS, managed 100% declaratively using Nix Flakes. One codebase, multiple machines, full reproducibility. The end of 'it works on my machine'.
+> **TL;DR**: [This repository](https://github.com/tomasz-wostal-eu/nixos-config) contains my personal configuration for NixOS and macOS, managed 100% declaratively using Nix Flakes. One codebase, multiple machines, full reproducibility. The end of 'it works on my machine'.
 
 ---
 
@@ -229,5 +229,5 @@ Migrating my entire configuration to Nix was a time investment, but the benefits
 | **No 'dependency hell'** | Each package has its own, isolated dependencies. No more library conflicts.                                                           |
 | **Atomic updates**       | Updates either work 100% or not at all. If an update fails, the system remains in its intact state.                                   |
 
-All the code and configuration from this post are available in this repository. I encourage you to browse and draw inspiration. If you are considering switching to Nix, I hope this example has shown you how powerful and elegant this solution can be.
+All the code and configuration from this post are available in [my nixos-config repository](https://github.com/tomasz-wostal-eu/nixos-config). I encourage you to browse and draw inspiration. If you are considering switching to Nix, I hope this example has shown you how powerful and elegant this solution can be.
 
